@@ -1,0 +1,216 @@
+<title>Kkomi Pen Mono</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+@font-face { font-family: "KPM"; src: url("fonts/variable/KNPSKkomiPenMono-VF.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: block; }
+@font-face { font-family: "KPM"; src: url("fonts/variable/KNPSKkomiPenMono-Italic-VF.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: block; }
+:root {
+  --bg: #f9f6fc; --panel: #ffffff; --fg: #231a2b; --muted: #6e6378; --line: #e5dbee; --accent: #7F10B5; --on-accent: #ffffff; --accent-soft: #f1e3fa; --cell: #fcfafe;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #17121c; --panel: #201a27; --fg: #ece5f3; --muted: #a69bb2; --line: #352b40; --accent: #c88aee; --on-accent: #17121c; --accent-soft: #34203f; --cell: #1c1622; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #17121c; --panel: #201a27; --fg: #ece5f3; --muted: #a69bb2; --line: #352b40; --accent: #c88aee; --on-accent: #17121c; --accent-soft: #34203f; --cell: #1c1622; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font: 15px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+.wrap { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.k { font-family: "KPM", monospace; font-weight: var(--w, 400); font-style: var(--st, normal); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 14px 10px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+h1 { margin: 0; font-size: 28px; font-weight: 500; line-height: 1.2; }
+.sub { color: var(--muted); font-size: 14px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 14px; }
+.controls label { display: flex; gap: 8px; align-items: center; }
+.controls input[type=range] { width: 140px; accent-color: var(--accent); }
+.num { font-variant-numeric: tabular-nums; min-width: 3ch; display: inline-block; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; }
+nav button { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+nav button[aria-selected=true] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+h1 { color: var(--accent); }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+h2 { margin: 0; font-size: 18px; font-weight: 600; }
+h3 { margin: 6px 0 0; font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+p { margin: 0; max-width: 70ch; }
+textarea { width: 100%; box-sizing: border-box; min-height: 260px; resize: vertical; background: var(--cell); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 14px; line-height: 1.45; }
+.ramp { display: flex; flex-direction: column; gap: 4px; overflow-x: auto; }
+.ramp div { display: flex; gap: 14px; align-items: baseline; white-space: pre; }
+.ramp span.lab { color: var(--muted); font-size: 12px; width: 3ch; flex: none; font-family: system-ui; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--cw, 52px), 1fr)); gap: 2px; }
+.c { background: var(--cell); border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px 0 2px; min-width: 0; }
+.c .g { font-size: var(--gs, 28px); line-height: 1.32; white-space: pre; }
+.c .u { font-size: 10px; color: var(--muted); font-family: ui-monospace, monospace; }
+.vs { height: 70vh; overflow-y: auto; position: relative; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.vs .sp { position: relative; }
+.vs .row { position: absolute; left: 0; right: 0; display: grid; gap: 2px; padding: 0 2px; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 14px; }
+select, input[type=text], input[type=number] { font: inherit; background: var(--cell); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; }
+.big { font-size: 160px; line-height: 1.3; text-align: center; background: var(--cell); border: 1px solid var(--line); border-radius: 8px; min-height: 1.3em; }
+.pick { display: grid; grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); gap: 2px; max-height: 220px; overflow-y: auto; }
+.pick button { font-family: "KPM"; font-size: 22px; background: var(--cell); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; padding: 2px 0; }
+.pick button[aria-pressed=true] { border-color: var(--accent); background: var(--accent-soft); }
+.note { color: var(--muted); font-size: 13px; }
+.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.three > div { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+button.small { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+</style>
+
+<div class="wrap">
+<header>
+  <div><h1 class="k">KNPS Kkomi Pen Mono</h1>
+  <div class="sub">국립공원 꼬미체의 획 중심선을 둥근 펜 하나로 다시 그린 고정폭 가변 폰트 · 1.0 미리보기</div></div>
+  <div class="controls">
+    <label>굵기 <input id="w" type="range" min="100" max="900" step="10" value="400"><span class="num" id="wv">400</span></label>
+    <label>크기 <input id="sz" type="range" min="10" max="64" step="1" value="20"><span class="num" id="szv">20</span>px</label>
+    <label><input id="it" type="checkbox"> 이탤릭</label>
+  </div>
+  <nav id="tabs"></nav>
+</header>
+<main id="main"></main>
+</div>
+
+<script>
+const DATA = {"L":[4352,4353,4354,4355,4356,4357,4358,4359,4360,4361,4362,4363,4364,4365,4366,4367,4368,4369,4370,4371,4372,4373,4374,4375,4376,4377,4378,4379,4380,4381,4382,4383,4384,4385,4386,4387,4388,4389,4390,4391,4392,4393,4394,4395,4396,4397,4398,4399,4400,4401,4402,4403,4404,4405,4406,4407,4408,4409,4410,4411,4412,4413,4414,4415,4416,4417,4418,4419,4420,4421,4422,4423,4424,4425,4426,4427,4428,4429,4430,4431,4432,4433,4434,4435,4436,4437,4438,4439,4440,4441,4442,4443,4444,4445,4446,43360,43361,43362,43363,43364,43365,43366,43367,43368,43369,43370,43371,43372,43373,43374,43375,43376,43377,43378,43379,43380,43381,43382,43383,43384,43385,43386,43387,43388],"V":[4449,4450,4451,4452,4453,4454,4455,4456,4457,4458,4459,4460,4461,4462,4463,4464,4465,4466,4467,4468,4469,4470,4471,4472,4473,4474,4475,4476,4477,4478,4479,4480,4481,4482,4483,4484,4485,4486,4487,4488,4489,4490,4491,4492,4493,4494,4495,4496,4497,4498,4499,4500,4501,4502,4503,4504,4505,4506,4507,4508,4509,4510,4511,4512,4513,4514,4515,4516,4517,4518,4519,55216,55217,55218,55219,55220,55221,55222,55223,55224,55225,55226,55227,55228,55229,55230,55231,55232,55233,55234,55235,55236,55237,55238],"T":[4520,4521,4522,4523,4524,4525,4526,4527,4528,4529,4530,4531,4532,4533,4534,4535,4536,4537,4538,4539,4540,4541,4542,4543,4544,4545,4546,4547,4548,4549,4550,4551,4552,4553,4554,4555,4556,4557,4558,4559,4560,4561,4562,4563,4564,4565,4566,4567,4568,4569,4570,4571,4572,4573,4574,4575,4576,4577,4578,4579,4580,4581,4582,4583,4584,4585,4586,4587,4588,4589,4590,4591,4592,4593,4594,4595,4596,4597,4598,4599,4600,4601,4602,4603,4604,4605,4606,4607,55243,55244,55245,55246,55247,55248,55249,55250,55251,55252,55253,55254,55255,55256,55257,55258,55259,55260,55261,55262,55263,55264,55265,55266,55267,55268,55269,55270,55271,55272,55273,55274,55275,55276,55277,55278,55279,55280,55281,55282,55283,55284,55285,55286,55287,55288,55289,55290,55291],"blocks":[["\uae30\ubcf8 \ub77c\ud2f4",[33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126]],["\ub77c\ud2f4-1 \ubcf4\ucda9",[161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255]],["\ub77c\ud2f4 \ud655\uc7a5-A",[256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383]],["\uac04\uaca9 \uc218\uc2dd \ubb38\uc790",[711,720,728,729,730,731,732,733]],["\uadf8\ub9ac\uc2a4 \ubb38\uc790",[902,904,905,906,908,910,911,913,914,915,916,917,918,919,920,921,922,923,924,925,926,927,928,929,931,932,933,934,935,936,937,938,939,940,941,942,943,945,946,947,948,949,950,951,952,953,954,955,956,957,958,959,960,961,962,963,964,965,966,967,968,969,970,971,972,973,974]],["\ud0a4\ub9b4 \ubb38\uc790",[1025,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1052,1053,1054,1055,1056,1057,1058,1059,1060,1061,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1093,1094,1095,1096,1097,1098,1099,1100,1101,1102,1103,1105]],["\uc77c\ubc18 \uad6c\ub450\uc810",[8208,8211,8212,8213,8214,8216,8217,8218,8220,8221,8222,8224,8225,8226,8229,8230,8240,8242,8243,8249,8250,8251,8252,8254]],["\uc704\u00b7\uc544\ub798 \ucca8\uc790",[8304,8308,8309,8310,8311,8312,8313,8319,8320,8321,8322,8323,8324,8325,8326,8327,8328,8329]],["\ud1b5\ud654 \uae30\ud638",[8361,8364]],["\ubb38\uc790 \uac19\uc740 \uae30\ud638",[8451,8457,8467,8470,8481,8482,8486,8491]],["\uc22b\uc790 \ud615\ud0dc",[8528,8529,8530,8531,8532,8533,8534,8535,8536,8537,8538,8539,8540,8541,8542,8544,8545,8546,8547,8548,8549,8550,8551,8552,8553,8560,8561,8562,8563,8564,8565,8566,8567,8568,8569,8585]],["\ud654\uc0b4\ud45c",[8592,8593,8594,8595,8596,8597,8598,8599,8600,8601,8658,8660]],["\uc218\ud559 \uc5f0\uc0b0\uc790",[8704,8706,8707,8710,8711,8712,8715,8719,8721,8730,8733,8734,8736,8741,8743,8744,8745,8746,8747,8748,8750,8756,8757,8758,8764,8765,8786,8800,8801,8804,8805,8810,8811,8834,8835,8838,8839,8857,8869,8943]],["\uae30\ud0c0 \uae30\uc220 \uae30\ud638",[8978,9151,9210]],["\uc81c\uc5b4 \ubb38\uc790 \uadf8\ub9bc",[9216,9217,9218,9219,9220,9221,9222,9223,9224,9225,9226,9227,9228,9229,9230,9231,9232,9233,9234,9235,9236,9237,9238,9239,9240,9241,9242,9243,9244,9245,9246,9247,9248,9249,9250,9251,9252,9253,9254]],["\ub458\ub7ec\uc2fc \uc601\uc22b\uc790",[9312,9313,9314,9315,9316,9317,9318,9319,9320,9321,9322,9323,9324,9325,9326,9327,9328,9329,9330,9331,9332,9333,9334,9335,9336,9337,9338,9339,9340,9341,9342,9343,9344,9345,9346,9347,9348,9349,9350,9351,9372,9373,9374,9375,9376,9377,9378,9379,9380,9381,9382,9383,9384,9385,9386,9387,9388,9389,9390,9391,9392,9393,9394,9395,9396,9397,9424,9425,9426,9427,9428,9429,9430,9431,9432,9433,9434,9435,9436,9437,9438,9439,9440,9441,9442,9443,9444,9445,9446,9447,9448,9449]],["\ubc15\uc2a4 \uc120",[9472,9473,9474,9475,9476,9477,9478,9479,9480,9481,9482,9483,9484,9485,9486,9487,9488,9489,9490,9491,9492,9493,9494,9495,9496,9497,9498,9499,9500,9501,9502,9503,9504,9505,9506,9507,9508,9509,9510,9511,9512,9513,9514,9515,9516,9517,9518,9519,9520,9521,9522,9523,9524,9525,9526,9527,9528,9529,9530,9531,9532,9533,9534,9535,9536,9537,9538,9539,9540,9541,9542,9543,9544,9545,9546,9547,9548,9549,9550,9551,9552,9553,9554,9555,9556,9557,9558,9559,9560,9561,9562,9563,9564,9565,9566,9567,9568,9569,9570,9571,9572,9573,9574,9575,9576,9577,9578,9579,9580,9581,9582,9583,9584,9585,9586,9587,9588,9589,9590,9591,9592,9593,9594,9595,9596,9597,9598,9599]],["\ube14\ub85d",[9600,9601,9602,9603,9604,9605,9606,9607,9608,9609,9610,9611,9612,9613,9614,9615,9616,9617,9618,9619,9620,9621,9622,9623,9624,9625,9626,9627,9628,9629,9630,9631]],["\ub3c4\ud615",[9632,9633,9635,9636,9637,9638,9639,9640,9641,9650,9651,9654,9655,9660,9661,9664,9665,9670,9671,9672,9673,9675,9678,9679,9680,9681]],["\uae30\ud0c0 \uae30\ud638",[9733,9734,9742,9743,9756,9758,9792,9794,9824,9825,9827,9828,9829,9831,9832,9833,9834,9836,9837]],["\ub529\ubc43",[10003,10004,10007,10008]],["\uae30\ud0c0 \uc218\ud559 \uae30\ud638-A",[10178]],["\uc810\uc790",[10241,10242,10243,10244,10245,10246,10247,10248,10249,10250,10251,10252,10253,10254,10255,10256,10257,10258,10259,10260,10261,10262,10263,10264,10265,10266,10267,10268,10269,10270,10271,10272,10273,10274,10275,10276,10277,10278,10279,10280,10281,10282,10283,10284,10285,10286,10287,10288,10289,10290,10291,10292,10293,10294,10295,10296,10297,10298,10299,10300,10301,10302,10303,10304,10305,10306,10307,10308,10309,10310,10311,10312,10313,10314,10315,10316,10317,10318,10319,10320,10321,10322,10323,10324,10325,10326,10327,10328,10329,10330,10331,10332,10333,10334,10335,10336,10337,10338,10339,10340,10341,10342,10343,10344,10345,10346,10347,10348,10349,10350,10351,10352,10353,10354,10355,10356,10357,10358,10359,10360,10361,10362,10363,10364,10365,10366,10367,10368,10369,10370,10371,10372,10373,10374,10375,10376,10377,10378,10379,10380,10381,10382,10383,10384,10385,10386,10387,10388,10389,10390,10391,10392,10393,10394,10395,10396,10397,10398,10399,10400,10401,10402,10403,10404,10405,10406,10407,10408,10409,10410,10411,10412,10413,10414,10415,10416,10417,10418,10419,10420,10421,10422,10423,10424,10425,10426,10427,10428,10429,10430,10431,10432,10433,10434,10435,10436,10437,10438,10439,10440,10441,10442,10443,10444,10445,10446,10447,10448,10449,10450,10451,10452,10453,10454,10455,10456,10457,10458,10459,10460,10461,10462,10463,10464,10465,10466,10467,10468,10469,10470,10471,10472,10473,10474,10475,10476,10477,10478,10479,10480,10481,10482,10483,10484,10485,10486,10487,10488,10489,10490,10491,10492,10493,10494,10495]],["CJK \uae30\ud638\uc640 \uad6c\ub450\uc810",[12288,12289,12290,12291,12296,12297,12298,12299,12300,12301,12302,12303,12304,12305,12307,12308,12309,12316]],["\ud788\ub77c\uac00\ub098",[12353,12354,12355,12356,12357,12358,12359,12360,12361,12362,12363,12364,12365,12366,12367,12368,12369,12370,12371,12372,12373,12374,12375,12376,12377,12378,12379,12380,12381,12382,12383,12384,12385,12386,12387,12388,12389,12390,12391,12392,12393,12394,12395,12396,12397,12398,12399,12400,12401,12402,12403,12404,12405,12406,12407,12408,12409,12410,12411,12412,12413,12414,12415,12416,12417,12418,12419,12420,12421,12422,12423,12424,12425,12426,12427,12428,12429,12430,12431,12432,12433,12434,12435,12437,12438,12443,12444]],["\uac00\ud0c0\uce74\ub098",[12449,12450,12451,12452,12453,12454,12455,12456,12457,12458,12459,12460,12461,12462,12463,12464,12465,12466,12467,12468,12469,12470,12471,12472,12473,12474,12475,12476,12477,12478,12479,12480,12481,12482,12483,12484,12485,12486,12487,12488,12489,12490,12491,12492,12493,12494,12495,12496,12497,12498,12499,12500,12501,12502,12503,12504,12505,12506,12507,12508,12509,12510,12511,12512,12513,12514,12515,12516,12517,12518,12519,12520,12521,12522,12523,12524,12525,12526,12527,12528,12529,12530,12531,12532,12533,12534,12539,12540]],["\ud638\ud658\uc6a9 \ud55c\uae00 \uc790\ubaa8",[12593,12594,12595,12596,12597,12598,12599,12600,12601,12602,12603,12604,12605,12606,12607,12608,12609,12610,12611,12612,12613,12614,12615,12616,12617,12618,12619,12620,12621,12622,12623,12624,12625,12626,12627,12628,12629,12630,12631,12632,12633,12634,12635,12636,12637,12638,12639,12640,12641,12642,12643,12645,12646,12647,12648,12649,12650,12651,12652,12653,12654,12655,12656,12657,12658,12659,12660,12661,12662,12663,12664,12665,12666,12667,12668,12669,12670,12671,12672,12673,12674,12675,12676,12677,12678,12679,12680,12681,12682,12683,12684,12685,12686]],["\ub458\ub7ec\uc2fc CJK \ubb38\uc790",[12800,12801,12802,12803,12804,12805,12806,12807,12808,12809,12810,12811,12812,12813,12814,12815,12816,12817,12818,12819,12820,12821,12822,12823,12824,12825,12826,12827,12828,12829,12830,12896,12897,12898,12899,12900,12901,12902,12903,12904,12905,12906,12907,12908,12909,12910,12911,12912,12913,12914,12915,12916,12917,12918,12919,12920,12921,12922,12923,12926,12927]],["CJK \ud638\ud658",[13184,13185,13186,13187,13188,13192,13193,13194,13195,13196,13197,13198,13199,13200,13201,13202,13203,13204,13205,13206,13207,13208,13209,13210,13211,13212,13213,13214,13215,13216,13217,13218,13219,13220,13221,13222,13223,13224,13225,13226,13227,13228,13229,13230,13231,13232,13233,13234,13235,13236,13237,13238,13239,13240,13241,13242,13243,13244,13245,13246,13247,13248,13249,13250,13251,13252,13253,13254,13255,13256,13257,13258,13259,13263,13264,13267,13270,13272,13275,13276,13277]],["\uc0ac\uc6a9\uc790 \uc815\uc758 \uc601\uc5ed (Powerline)",[57504,57505,57506,57520,57521,57522,57523]],["\ubc18\uac01\u00b7\uc804\uac01 \ud615\ud0dc",[65281,65282,65283,65284,65285,65286,65287,65288,65289,65290,65291,65292,65293,65294,65295,65296,65297,65298,65299,65300,65301,65302,65303,65304,65305,65306,65307,65308,65309,65310,65311,65312,65313,65314,65315,65316,65317,65318,65319,65320,65321,65322,65323,65324,65325,65326,65327,65328,65329,65330,65331,65332,65333,65334,65335,65336,65337,65338,65339,65340,65341,65342,65343,65344,65345,65346,65347,65348,65349,65350,65351,65352,65353,65354,65355,65356,65357,65358,65359,65360,65361,65362,65363,65364,65365,65366,65367,65368,65369,65370,65371,65372,65373,65374,65377,65378,65379,65380,65381,65382,65383,65384,65385,65386,65387,65388,65389,65390,65391,65392,65393,65394,65395,65396,65397,65398,65399,65400,65401,65402,65403,65404,65405,65406,65407,65408,65409,65410,65411,65412,65413,65414,65415,65416,65417,65418,65419,65420,65421,65422,65423,65424,65425,65426,65427,65428,65429,65430,65431,65432,65433,65434,65435,65436,65437,65438,65439,65504,65505,65506,65507,65509,65510]],["\ud2b9\uc218 \ubb38\uc790",[65533]]]};
+const $ = (s, r = document) => r.querySelector(s);
+const el = (t, a = {}, ...ch) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (k === "class") e.className = v; else if (k === "style") e.style.cssText = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const c of ch) e.append(c); return e; };
+const hex = c => "U+" + c.toString(16).toUpperCase().padStart(4, "0");
+const ch = c => String.fromCodePoint(c);
+const root = document.documentElement;
+function applyStyle() {
+  root.style.setProperty("--w", $("#w").value); $("#wv").textContent = $("#w").value;
+  root.style.setProperty("--st", $("#it").checked ? "italic" : "normal");
+  $("#szv").textContent = $("#sz").value; document.querySelectorAll("[data-sz]").forEach(e => e.style.fontSize = $("#sz").value + "px");
+}
+["w", "sz", "it"].forEach(id => $("#" + id).addEventListener("input", applyStyle));
+
+const SAMPLE = `# 꼬미 펜 모노: 손글씨 고정폭
+routine greet(name: Text?) -> Text
+    var 인사 = f"안녕, {name}!"  # 0O 1lI| rnm (){}[]
+    if count >= 10 and x != y
+        return 인사
+    return name ?? "=> <= -> =="
+다람쥐 헌 쳇바퀴에 타고파. 흙빛 뷁 쀍 꿿
+The quick brown fox jumps over the lazy dog.
+ᄒᆞᆫ글 ᄂᆞᄅᆞᆺ말ᄊᆞ미 ᄃᆡᇰ귁에 달아 문ᄍᆞᆼ와로 서르 ᄉᆞᄆᆞᆺ디 아니ᄒᆞᆯᄊᆡ
+├── src/  ▓▒░  ⠿⠶  → ⇒ ≤ ≥ ≠ ✓ ✗`;
+
+const RAMP = "꼬미 Pen Mono 0123 흙빛 {;} ᄒᆞᆫ";
+
+// a grid that draws only the rows on screen
+function virtualGrid(total, cellOf, opts = {}) {
+  const box = el("div", { class: "vs" }), sp = el("div", { class: "sp" }); box.append(sp);
+  const cw = opts.cw || 64, ch_ = opts.ch || 72; let cols = 1, drawn = new Map();
+  function layout() { cols = Math.max(1, Math.floor((box.clientWidth - 4) / cw)); sp.style.height = Math.ceil(total / cols) * ch_ + "px"; drawn.forEach(r => r.remove()); drawn.clear(); draw(); }
+  function draw() {
+    const r0 = Math.max(0, Math.floor(box.scrollTop / ch_) - 4), r1 = Math.min(Math.ceil(total / cols), Math.ceil((box.scrollTop + box.clientHeight) / ch_) + 4);
+    for (const [r, n] of drawn) if (r < r0 || r >= r1) { n.remove(); drawn.delete(r); }
+    for (let r = r0; r < r1; r++) {
+      if (drawn.has(r)) continue;
+      const row = el("div", { class: "row", style: `top:${r * ch_}px;height:${ch_ - 2}px;grid-template-columns:repeat(${cols},1fr)` });
+      for (let i = r * cols; i < Math.min(total, (r + 1) * cols); i++) row.append(cellOf(i));
+      sp.append(row); drawn.set(r, row);
+    }
+  }
+  box.addEventListener("scroll", () => requestAnimationFrame(draw), { passive: true });
+  new ResizeObserver(layout).observe(box);
+  box.goTo = i => { box.scrollTop = Math.floor(i / cols) * ch_; };
+  return box;
+}
+const cell = (g, u) => el("div", { class: "c" }, el("span", { class: "g k" }, g), el("span", { class: "u" }, u));
+
+const VIEWS = {
+  preview() {
+    const s = el("section", {}, el("h2", {}, "미리보기"),
+      el("p", { class: "note" }, "글을 고쳐 써 보세요. 위의 굵기·크기·이탤릭이 바로 반영됩니다."));
+    const t = el("textarea", { class: "k", "data-sz": "", spellcheck: "false" }); t.value = SAMPLE; s.append(t);
+    const r = el("div", { class: "ramp" });
+    for (let w = 100; w <= 900; w += 100) r.append(el("div", {}, el("span", { class: "lab" }, String(w)), el("span", { class: "k", style: `font-weight:${w};font-size:30px` }, RAMP)));
+    s.append(el("h2", {}, "굵기 100 ~ 900"), r);
+    return s;
+  },
+  chars() {
+    const s = el("section", {}, el("h2", {}, "한글이 아닌 글자"));
+    let n = 0;
+    for (const [name, cps] of DATA.blocks) {
+      n += cps.length; const g = el("div", { class: "grid" });
+      for (const c of cps) g.append(cell(ch(c), hex(c)));
+      s.append(el("h3", {}, `${name} · ${cps.length}자`), g);
+    }
+    s.children[0].after(el("p", { class: "note" }, `블록별 ${n}자. 리거처와 대체 글리프는 미리보기에서 확인하세요.`));
+    return s;
+  },
+  modern() {
+    const s = el("section", {}, el("h2", {}, "현대 한글 11,172자"));
+    s.append(virtualGrid(11172, i => cell(ch(0xAC00 + i), (i + 1).toLocaleString()), { cw: 60, ch: 70 }));
+    return s;
+  },
+  jamo() {
+    const s = el("section", {}, el("h2", {}, "옛한글 자모"),
+      el("p", { class: "note" }, "칸마다 자모 하나를 채움 문자와 함께 보입니다(초성은 초성+중성 채움, 중성은 초성 채움+중성, 종성은 초성 채움+중성 채움+종성)."));
+    const part = (title, list, make) => { const g = el("div", { class: "grid", style: "--cw:76px" }); for (const c of list) g.append(cell(make(c), hex(c))); s.append(el("h3", {}, `${title} · ${list.length}자`), g); };
+    part("초성", DATA.L, c => ch(c) + "\u1160"); part("중성", DATA.V, c => "\u115F" + ch(c)); part("종성", DATA.T, c => "\u115F\u1160" + ch(c));
+    s.append(el("h3", {}, "채움 문자"), el("div", { class: "grid", style: "--cw:76px" }, cell("\u115F", "U+115F"), cell("\u1160", "U+1160")));
+    return s;
+  },
+  compose() {
+    const s = el("section", {}, el("h2", {}, "직접 짜 보기"));
+    const big = el("div", { class: "big k" }); const code = el("p", { class: "note" });
+    const L = [0x115F, ...DATA.L], V = [0x1160, ...DATA.V], T = [0, ...DATA.T];
+    const cur = { L: DATA.L[0], V: DATA.V[0], T: 0 };
+    const pickers = {};
+    const mk = (key, list, show) => {
+      const p = el("div", { class: "pick" });
+      for (const c of list) p.append(el("button", { class: "", "aria-pressed": String(cur[key] === c), title: c ? hex(c) : "없음", onclick: () => { cur[key] = c; upd(); } }, show(c)));
+      pickers[key] = p; return p;
+    };
+    const upd = () => {
+      const t = ch(cur.L) + ch(cur.V) + (cur.T ? ch(cur.T) : ""); big.textContent = t;
+      code.textContent = [cur.L, cur.V, cur.T].filter(Boolean).map(hex).join(" + ");
+      for (const k of ["L", "V", "T"]) pickers[k].querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-pressed", String([L, V, T][["L", "V", "T"].indexOf(k)][i] === cur[k])));
+    };
+    s.append(big, code,
+      el("div", { class: "three" },
+        el("div", {}, el("h3", {}, "초성"), mk("L", L, c => c === 0x115F ? "채움" : ch(c) + "\u1160")),
+        el("div", {}, el("h3", {}, "중성"), mk("V", V, c => c === 0x1160 ? "채움" : "\u115F" + ch(c))),
+        el("div", {}, el("h3", {}, "종성"), mk("T", T, c => c ? "\u115F\u1160" + ch(c) : "없음"))),
+      el("div", { class: "jump" }, el("button", { class: "small", onclick: () => { cur.L = DATA.L[Math.random() * DATA.L.length | 0]; cur.V = DATA.V[Math.random() * DATA.V.length | 0]; cur.T = T[Math.random() * T.length | 0]; upd(); } }, "무작위 음절")));
+    pickers.L.querySelectorAll("button")[0].style.fontFamily = "system-ui"; pickers.V.querySelectorAll("button")[0].style.fontFamily = "system-ui"; pickers.T.querySelectorAll("button")[0].style.fontFamily = "system-ui";
+    pickers.L.querySelectorAll("button")[0].style.fontSize = pickers.V.querySelectorAll("button")[0].style.fontSize = pickers.T.querySelectorAll("button")[0].style.fontSize = "13px";
+    upd(); return s;
+  },
+  old() {
+    const nL = DATA.L.length, nV = DATA.V.length, nT = DATA.T.length + 1, main = nL * nV * nT;
+    // fillers after the main block: 115F + V (+T), L + 1160 (+T), 115F + 1160 + T
+    const fA = nV * nT, fB = nL * nT, fC = DATA.T.length, total = main + fA + fB + fC;
+    const T = [0, ...DATA.T];
+    const at = i => {
+      if (i < main) { const l = Math.floor(i / (nV * nT)), v = Math.floor(i / nT) % nV, t = i % nT; return [DATA.L[l], DATA.V[v], T[t]]; }
+      i -= main; if (i < fA) return [0x115F, DATA.V[Math.floor(i / nT)], T[i % nT]];
+      i -= fA; if (i < fB) return [DATA.L[Math.floor(i / nT)], 0x1160, T[i % nT]];
+      i -= fB; return [0x115F, 0x1160, DATA.T[i]];
+    };
+    const s = el("section", {}, el("h2", {}, `옛한글 첫가끝 조합 전체 ${total.toLocaleString()}자`),
+      el("p", { class: "note" }, `초성 ${nL} × 중성 ${nV} × (종성 ${nT - 1} + 없음) = ${main.toLocaleString()}자, 그 뒤에 채움 문자 조합 ${(fA + fB + fC).toLocaleString()}자. 보이는 줄만 그립니다.`));
+    const box = virtualGrid(total, i => { const [l, v, t] = at(i); return cell(ch(l) + ch(v) + (t ? ch(t) : ""), (i + 1).toLocaleString()); }, { cw: 72, ch: 74 });
+    const sL = el("select"), sV = el("select");
+    DATA.L.forEach((c, k) => sL.append(el("option", { value: k }, ch(c) + "ᅡ  " + hex(c))));
+    DATA.V.forEach((c, k) => sV.append(el("option", { value: k }, "ᄋ" + ch(c) + "  " + hex(c))));
+    sL.className = sV.className = "k";
+    const go = () => box.goTo((+sL.value * nV + +sV.value) * nT);
+    sL.addEventListener("change", go); sV.addEventListener("change", go);
+    const num = el("input", { type: "number", min: 1, max: total, value: 1, style: "width:11ch" });
+    s.append(el("div", { class: "jump" }, el("label", {}, "초성 ", sL), el("label", {}, "중성 ", sV),
+      el("label", {}, "번호 ", num), el("button", { class: "small", onclick: () => box.goTo(Math.max(0, Math.min(total, +num.value) - 1)) }, "이동"),
+      el("button", { class: "small", onclick: () => box.goTo(main) }, "채움 문자 조합으로")), box);
+    return s;
+  },
+};
+const NAMES = { preview: "미리보기", chars: "한글이 아닌 글자", modern: "현대 한글", jamo: "옛한글 자모", compose: "직접 짜 보기", old: "옛한글 전체" };
+const made = {};
+function show(k) {
+  if (!VIEWS[k]) k = "preview";
+  for (const b of $("#tabs").children) b.setAttribute("aria-selected", String(b.dataset.k === k));
+  const m = $("#main"); m.replaceChildren(made[k] || (made[k] = VIEWS[k]())); applyStyle();
+}
+for (const k of Object.keys(VIEWS)) $("#tabs").append(el("button", { "data-k": k, onclick: () => { location.hash = k; } }, NAMES[k]));
+addEventListener("hashchange", () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script>
