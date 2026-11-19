@@ -1327,3 +1327,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   Enclosures written after what they hold are moved: 囗's bottom, 匚 匸's last stroke, all of 凵; 辶 廴 go last.
 - Kanji are drawn from C (`KANJI_FROM_C`, default on) through the same Kkomi rules. Hooks are dropped, and only
   GlyphWiki's stopped dots (end code 8) become the 45 degree tick.
+- Joyo check (2026-11-19): all 2,140 drawn from C without errors. Scored against Noto Sans CJK JP with the boxes fitted per
+  axis. The lowest 100 were design differences (dot places, roof lengths), not broken glyphs.
+- Kanji S_lang (2026-11-19): the hand blend of `styles/s_chinese_kkomi.json` (each C stroke paired with Yomogi's and Hachi
+  Maru Pop's, share 0.5) now runs on the GlyphWiki C through `c_final.py`. Placement medians were re-measured; the Noto-C
+  ones are kept as `c_final_medians.noto.json`.
+- Small kana stay full width in this monospace font. Measured: fixed-width Japanese fonts keep them at 100%. Proportional
+  ones narrow them to 70-91% of the em (Noto Sans JP palt 70-85%, Mochiy Pop P One 67-83%, BIZ UDPGothic 82-91%).
