@@ -1313,3 +1313,12 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - C_kana 고침(남김, MYFFIMM·다른 스타일용): 교차점 S자 꺾임 펴기, 자기 교차 고리의 꺾임 펴기, ぬ ね る 고리를 교차로(교과서체와 대조), 획순·방향 고침 お か ち せ は ふ や ゆ よ り キ シ セ ヒ ヤ(KANA_ORDER_FIX). 문부과학성은 가나 모양 데이터를 내지 않고 교과서체를 표준으로 지도함.
 - 가나 다시 그리기 재개(2026-11-19, 루미: 4번 판으로): 뼈대 new(손글씨 섞음, kanji_rules) + 일관성 규칙에 더해, Y자 정리(사선→팔 끝→되꺾임→다음 획, 사선 방향으로 넘친 70 미만 꼬리는 뺌), れ ね わ ゎ 손으로 적은 길(KANA_SLANT_ROUTE: 사선을 팔 끝까지 곧게, 팔을 따라 되돌아오는 벌어진 V), る 모양은 뼈대 그대로·쓰는 순서만 바로(몸통→바닥→고리 한 바퀴→닿아 끝, 원으로 바꾸기는 시험 후 뺌), 진짜 모서리 사이 스플라인(KANA_SPLINE), 모서리 곡선 2단위마다, 탁점·반탁점은 원본 탁음 뼈대에서 맑은 글자에 없는 조각(맑은 글자를 겹쳐 맞춘 뒤 차이, 맑은 글자에서 먼 것부터, 오른쪽 먼저 비켜 놓음). 높이는 지금대로(잉크 7~848, 라틴 대문자 높이; 한글 받침 높이로 키우는 안은 루미가 뺌). 폰트에는 아직 안 넣음.
 - C_kanji 바로잡기 자료(2026-11-19, 루미): GlyphWiki 덤프(KAGE 데이터)를 정답지로. 라이선스: 덤프에 든 LICENSE.txt "あらゆる改変の有無に関わらず、また商業的な利用であっても、自由に利用、複製、再配布することができます"(무보증, Copyright 2009 GlyphWiki Project), 저작자 표시 의무 없음. 위키의 라이선스 페이지는 자동 요청을 막음(403), 덤프는 공개 배포(https://glyphwiki.org/dump.tar.gz, tmp/dl_glyphwiki). 글자 = 부품 참조(99:...: u8a9e-j = u8a01-01 + u543e-j) + 획(종류 1 직선 2 곡선 3 꺾임 4 乙 6 복곡선 7 세로삐침, 시작·끝 모양 코드). 일본 자형은 -j. 제외 유지: CHISE·cjkvi-ids(GPL), KanjiVG·MJ(CC BY-SA), Make Me a Hanzi(LGPL).
+
+## C_kanji from GlyphWiki (2026-11-19)
+- Kanji stroke structure comes from GlyphWiki (KAGE centre lines, Japanese forms `-j`), not from Noto skeletons:
+  the skeleton cut and mispaired strokes at thick crossings (東 森).
+- Checked against Japanese glyph stroke counts (Unihan `kRSAdobe_Japan1_6`, 求 7 by hand).
+- Pieces become strokes by corner codes (22/27), lower-left corners (13, except boxes), the 氵 foot,
+  then per character the most careful merge setting that gives the standard count, then joining touching ends.
+- 23 characters are set by hand (`tmp/exp20/gw_fix.json`). Joyo: 2,134 of 2,140 (99.7%).
+- Open: 幣 弊 御 捗 殻 (one stroke short), 緊 (one over).
