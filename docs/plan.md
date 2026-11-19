@@ -1322,3 +1322,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   then per character the most careful merge setting that gives the standard count, then joining touching ends.
 - 23 characters are set by hand (`tmp/exp20/gw_fix.json`). Joyo: 2,134 of 2,140 (99.7%).
 - Open: 幣 弊 御 捗 殻 (one stroke short), 緊 (one over).
+- Stroke kinds and order (2026-11-19): `tmp/exp20/gw_c.py` turns the GlyphWiki strokes into C (1000-unit em, kinds,
+  hooks, finish). The writing order is GlyphWiki's piece order (it follows the Japanese order: 右 万 方 力 九 火 何).
+  Enclosures written after what they hold are moved: 囗's bottom, 匚 匸's last stroke, all of 凵; 辶 廴 go last.
+- Kanji are drawn from C (`KANJI_FROM_C`, default on) through the same Kkomi rules. Hooks are dropped, and only
+  GlyphWiki's stopped dots (end code 8) become the 45 degree tick.
