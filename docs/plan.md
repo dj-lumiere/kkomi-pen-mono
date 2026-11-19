@@ -1345,3 +1345,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   Yomogi -0.86 -0.46 1.24 (distance 1.23), Hachi Maru Pop -1.27 -0.25 1.42 (0.99). The median distance from Kkomi
   over all fonts is 2.15, so both are near. Share 0.5 gives 1.09 and 0.7 gives 1.05: a small gain toward Hachi Maru
   Pop. Kkomi is more regular than both and rounder at corners.
+- 氵's third stroke (Lumi 2026-11-19): drawn as one rise "/", no foot (`gw_c.FOOT = "rise"`). The candidates were a sharp
+  V "\/" and a round U; Lumi: Kkomi would write "/". Yomogi and Hachi Maru Pop write it the same way.
