@@ -1338,3 +1338,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 
 ## Later: a monospace Hachi Maru Pop with Hangul (2026-11-19)
 - A planned case for the MYFFIMM engine, written up in `fonts/myffimm/README.md`.
+- Fixed (2026-11-19): `c_match.hand_strokes` read GlyphWiki's C in place of the hand font's own skeleton, once
+  `kanji_c.strokes` went to GlyphWiki, so the earlier "hand blend" render had no hand in it. It now turns the
+  GlyphWiki path off while it reads a hand font. With the real blend, 氵 differs from glyph to glyph.
+- Hand distance to Kkomi (Latin, three axes z-scored over 153 fonts; irregular, detail, square): Kkomi -1.82 0.02 0.64,
+  Yomogi -0.86 -0.46 1.24 (distance 1.23), Hachi Maru Pop -1.27 -0.25 1.42 (0.99). The median distance from Kkomi
+  over all fonts is 2.15, so both are near. Share 0.5 gives 1.09 and 0.7 gives 1.05: a small gain toward Hachi Maru
+  Pop. Kkomi is more regular than both and rounder at corners.
