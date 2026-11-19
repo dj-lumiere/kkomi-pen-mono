@@ -1334,3 +1334,11 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   ones are kept as `c_final_medians.noto.json`.
 - Small kana stay full width in this monospace font. Measured: fixed-width Japanese fonts keep them at 100%. Proportional
   ones narrow them to 70-91% of the em (Noto Sans JP palt 70-85%, Mochiy Pop P One 67-83%, BIZ UDPGothic 82-91%).
+
+## Later: a monospace Hachi Maru Pop with Hangul (Lumi 2026-11-19, for "myffimm")
+- Lumi wants a fixed-width font built on Hachi Maru Pop with Hangul added.
+- Licence: OFL 1.1, no Reserved Font Name in its copyright string ("Copyright 2020 The Hachi Maru Pop Project Authors").
+  A derivative may be released under OFL, keeping the copyright notice. A new name is still better.
+- Coverage: 6,682 kanji, 184 kana, 95 Latin, no Hangul.
+- Hangul is the "script the font lacks" case (sections 25 and 33): S_font measured from its Latin (and stroke habits from
+  its kana and kanji), R_hangul + C_hangul, S_lang = 0. Kanji and kana are already full width; Latin goes to half width.
