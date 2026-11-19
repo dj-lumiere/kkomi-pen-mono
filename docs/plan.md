@@ -1348,3 +1348,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - 氵's third stroke (Lumi 2026-11-19): drawn as one rise "/", no foot (`gw_c.FOOT = "rise"`). The candidates were a sharp
   V "\/" and a round U; Lumi: Kkomi would write "/". Yomogi and Hachi Maru Pop write it the same way. The rise starts
   at the foot's lowest point (Lumi: it sat too high), the move fading to nothing at its top end.
+- 氵's rise length (Lumi 2026-11-19, "too long"): cut to 34% of the 氵's height from its low start (`gw_c.RISE_SHARE`).
+  Measured on 12 kanji: Yomogi 0.38, Hachi Maru Pop 0.30 (medians). GlyphWiki's reached the second dot (0.79).
