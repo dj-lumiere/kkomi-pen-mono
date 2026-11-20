@@ -1371,3 +1371,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   (`99:sx:sy:...:sx2:sy2`) are now applied as kage.js does (a piecewise linear move inside the part's box). Joyo:
   134 kanji use old versions and 74 stretched parts; 鬱 爆 森 now sit where Noto has them. The count stays 2,134 and the
   hand-fixed numbering is unchanged.
+- 覧's 臣 (Lumi 2026-11-20, "the top left is crushed"): `open_counters` kept parallel strokes 1.7 pens apart in C's units,
+  but the lines shrink when placed (about 15%, more across) and the pen does not, so the real gap was about 1.45 pens.
+  The pen is now handed over in C's units (divided by the placement's scale and WIDTH_FIT). With that 1.7 opens 覧's 臣;
+  2.0 squeezed the rest of the glyph (鬱's 彡, 驚's 馬), so 1.7 stays.
