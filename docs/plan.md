@@ -1420,3 +1420,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   about JetBrains Mono 800, a little under Noto Sans Mono 900; heavier would fill dense Hangul first.
 - To do: dense Hangul syllables (뷁 쀍: double finals, compound vowels) fill in at 700 and 900. The Hangul layout is one
   for every weight; heavier weights need their parts spread by the pen.
+- Heavy-weight Hangul (Lumi 2026-11-21): at 700/800/900 the white between close parallel strokes is kept at that
+  master's pen (hangul_spread.py): the room comes from nearby bands, no part moves more than 40 units (a final
+  grown by its own ㅎ stood too high), what is still short comes from that syllable's pen (at most 15% thinner,
+  never thinner than at the weight below). Syllables losing a hole: 700 289 -> 15, 900 314 -> 106 (left as 900's
+  nature: small finals with ㅎ). Next: kanji, then old Hangul.
