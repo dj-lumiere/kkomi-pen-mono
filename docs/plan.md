@@ -1375,3 +1375,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   but the lines shrink when placed (about 15%, more across) and the pen does not, so the real gap was about 1.45 pens.
   The pen is now handed over in C's units (divided by the placement's scale and WIDTH_FIT). With that 1.7 opens 覧's 臣;
   2.0 squeezed the rest of the glyph (鬱's 彡, 驚's 馬), so 1.7 stays.
+- 覧's 臣 leaning (Lumi 2026-11-20): the hand step had turned its left stem 22 degrees toward the hands'. Bars and stems
+  (kinds h, v) may now turn at most 3 degrees from C's (`c_match.TURN_CAP`), turned back about their middle; their place
+  and bend still follow the hands. Kkomi writes more evenly than either hand (the irregularity measure above).
