@@ -1416,3 +1416,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   JetBrains Mono (ink share and cap-height ratios had misled: Kkomi's glyphs are large in the em). The Hangul pen
   (`build20.PEN`) is now this table (its 100 had been 31, too dark); the kana's 0.95 and the kanji's 0.85 are gone;
   kanji thin from 15 strokes to 0.8 at 25 and more. Every script draws to 900 (weight caps removed, composites too).
+- 900 stays at pen 142 (Lumi 2026-11-21): at 16 px it already reads apart from 700 (Kkomi's glyphs are large),
+  about JetBrains Mono 800, a little under Noto Sans Mono 900; heavier would fill dense Hangul first.
+- To do: dense Hangul syllables (뷁 쀍: double finals, compound vowels) fill in at 700 and 900. The Hangul layout is one
+  for every weight; heavier weights need their parts spread by the pen.
