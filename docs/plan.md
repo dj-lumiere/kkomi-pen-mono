@@ -1350,3 +1350,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   at the foot's lowest point (Lumi: it sat too high), the move fading to nothing at its top end.
 - 氵's rise length (Lumi 2026-11-19, "too long"): cut to 34% of the 氵's height from its low start (`gw_c.RISE_SHARE`).
   Measured on 12 kanji: Yomogi 0.38, Hachi Maru Pop 0.30 (medians). GlyphWiki's reached the second dot (0.79).
+- Cut and merged strokes (2026-11-20): the 975 "cut" / 850 "merged" kanji counted ink pieces and counters on a raster,
+  and most were stroke pairs a hair over one pen apart that the raster joined by rounding (受: 冖 and 又, 66 units at a
+  64.6 pen). Now judged pair by pair in placed units against the pen: touching or crossing in C (under half a pen) must
+  keep no white between; clearly apart (over 1.3 pens) must keep white; pairs between are free. The hand step's
+  structure-keeping loop (`c_match.styled`) uses the same rule, with distances point to segment and the placement's
+  scale (across narrower than up). Joyo after it: 4 cut (厳 璽 色 鈴), 28 merged; the render of those 32 reads well
+  except 鬱 (29 strokes, ink runs together).
