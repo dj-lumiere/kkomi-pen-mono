@@ -1388,3 +1388,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   - `open_counters` stretches bands with one map of y for all points, but a smiling bar's middle and a stem's foot sit
     at slightly different heights and moved apart (書's stem fell short of its last bar). Joints are now noted
     before the stretch and put back after it.
+- Kanji in the build (2026-11-20, check build `tmp/check22`): `kanji_new.py` draws the 2,140 Joyo kanji through
+  `c_final`; `kana_r.py` puts them into the glyph tables as new glyphs `uniXXXX` (the 1.x font has no kanji), and
+  `glyphs20.py` / `make20.py` take names the 1.x font lacks (code point from the name, advance 1000). The build chain's
+  latin stage now also watches the kanji files. Each of the four check fonts has 22,342 glyphs and all 2,140 Joyo kanji.
