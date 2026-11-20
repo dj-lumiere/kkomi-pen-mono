@@ -1399,3 +1399,14 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   the baseline like them. 871 sizes the median kanji; each glyph keeps its own proportions (口 595, 国 768, 東 876).
   Kanji of 20 strokes and more are no longer drawn at 95% (`dense_size` 1.0): 鬱 was 835 high with too little room.
   鬱 is to be looked at again later.
+
+## Weights up to 900 for every script (Lumi 2026-11-20)
+- Today the variable font has masters 100, 400, 700 only; 800 and 900 draw as 700 except the Latin (Hangul stops at 700,
+  other non-Latin at 800). Every script is to reach 900, the weights spread again if needed.
+- Target colour (ink share of the cell): the Hangul's at 400, times the Latin's growth from 400 (Lumi chose).
+  Measured on the check build (`tmp/weight_density.pkl`): target 0.067 0.118 0.169 0.217 0.244 0.275 0.301 0.328 0.356
+  at 100..900. Against it: Hangul 1.26 at 100, 0.91 / 0.83 at 800 / 900; kanji 0.91..0.99 on average but 0.52..1.29
+  by stroke count; kana 0.55 everywhere.
+- Steps: (1) pen width to colour, measured per script and stroke count; (2) a 900 master for every script, dense
+  glyphs bolder only as far as their white allows (open_counters first); (3) pen shares per master, script and stroke
+  count; (4) check build, measure again.
