@@ -1381,3 +1381,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   The cap alone did not show: the joint repair after it pulled the stem's foot to where 臣's bottom had moved (130
   units shorter with the hands) and leaned it again. Now when a bar or stem would turn past the cap to reach another
   stroke's end, that end comes to it instead (the bottom grows back to the stem).
+- Stems cut short (Lumi 2026-11-20, 覧's 臣, 書): two rules.
+  - `join_corners` cut a stem's "leg" (a tail under 110 units past where a bar ends on it, made for Noto skeletons'
+    口 sides that ran below the bottom bar). In small boxes (臣 目) the stem below a middle bar is that short and was
+    cut. A tail whose end lies on another stroke is a stroke and stays; only a free tail is a leg.
+  - `open_counters` stretches bands with one map of y for all points, but a smiling bar's middle and a stem's foot sit
+    at slightly different heights and moved apart (書's stem fell short of its last bar). Joints are now noted
+    before the stretch and put back after it.
