@@ -1430,3 +1430,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   gives), and what is still short comes from that kanji's pen, at most 25% thinner, never thinner than at the
   weight below (entry lines_by_w / pen_share_by_w, drawn by make20). 16 dense kanji losing a hole: 700 15 -> 5,
   900 16 -> 9; the rest left as 900's nature. Next: old Hangul.
+- Heavy-weight old Hangul (2026-11-21): each jamo form at a heavy master is narrowed about its middle by the pen's
+  growth over 400 (at most 15%), spread inside like the modern syllables, then its pen fitted (at most 15%
+  thinner). Check build, glyphs losing a hole against 100 (before -> after): modern 700 982 -> 226, 900 1416 -> 292;
+  kanji 700 98 -> 27, 900 493 -> 89; old (3,000 random) 700 507 -> 432, 900 767 -> 512.
+- Fixed (Lumi 2026-11-21): old letters lost their own shapes when the layout table put in Kkomi's ㅅ ㅇ ㅎ ㅈ ㅊ
+  (canonical_letters, since 2026-11-18): ᄼ ᄾ ᅎ ᅐ ᅔ ᅕ came out as plain ㅅ ㅈ ㅊ, ᅀ as ㅅ, ᅙ as ㅎ, ᅌ as ㅇ.
+  old_table now applies the letter changes (old_compose.mod_changes) again after it.
