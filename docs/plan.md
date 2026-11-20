@@ -1437,3 +1437,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Fixed (Lumi 2026-11-21): old letters lost their own shapes when the layout table put in Kkomi's ㅅ ㅇ ㅎ ㅈ ㅊ
   (canonical_letters, since 2026-11-18): ᄼ ᄾ ᅎ ᅐ ᅔ ᅕ came out as plain ㅅ ㅈ ㅊ, ᅀ as ㅅ, ᅙ as ㅎ, ᅌ as ㅇ.
   old_table now applies the letter changes (old_compose.mod_changes) again after it.
+- Chitueum / ceongchieum (Lumi 2026-11-21: one side empty, the other too high): the short leg 1/1.3 of the long
+  (was 1/1.5), and the letter put into the box its plain letter gets in the same syllable (old_table.glyph_packed,
+  SIB_PLAIN), so ᄼ ᄾ stand as high and wide as ㅅ. The yesieung tick 1.6 pens long (was 0.9).
