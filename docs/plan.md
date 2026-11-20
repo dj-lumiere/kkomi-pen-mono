@@ -1425,3 +1425,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   grown by its own ㅎ stood too high), what is still short comes from that syllable's pen (at most 15% thinner,
   never thinner than at the weight below). Syllables losing a hole: 700 289 -> 15, 900 314 -> 106 (left as 900's
   nature: small finals with ㅎ). Next: kanji, then old Hangul.
+- Heavy-weight kanji (Lumi 2026-11-21): open_counters runs again at each heavy master's own pen (c_final.ruled
+  weights, kanji_new "heavy"); at those masters the glyph keeps its size (the tight bands get only what the slack
+  gives), and what is still short comes from that kanji's pen, at most 25% thinner, never thinner than at the
+  weight below (entry lines_by_w / pen_share_by_w, drawn by make20). 16 dense kanji losing a hole: 700 15 -> 5,
+  900 16 -> 9; the rest left as 900's nature. Next: old Hangul.
