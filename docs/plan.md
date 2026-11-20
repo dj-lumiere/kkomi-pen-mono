@@ -1440,3 +1440,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Chitueum / ceongchieum (Lumi 2026-11-21: one side empty, the other too high): the short leg 1/1.3 of the long
   (was 1/1.5), and the letter put into the box its plain letter gets in the same syllable (old_table.glyph_packed,
   SIB_PLAIN), so ᄼ ᄾ stand as high and wide as ㅅ. The yesieung tick 1.6 pens long (was 0.9).
+- Sibilant legs 2:3 (Lumi 2026-11-21: the difference must show): after the box fit the short leg's drop is set to
+  2/3 of the long leg's, along its own slant (old_table.sib_legs); a sibilant cluster (ᄽ ᄿ ᅏ ᅑ) is fitted as a
+  whole into its plain double letter's box.
