@@ -1357,3 +1357,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   structure-keeping loop (`c_match.styled`) uses the same rule, with distances point to segment and the placement's
   scale (across narrower than up). Joyo after it: 4 cut (厳 璽 色 鈴), 28 merged; the render of those 32 reads well
   except 鬱 (29 strokes, ink runs together).
+- 衣's strokes (Lumi 2026-11-20, 衷 表 "the sweeps are not smooth"): the ム rule had joined 衣's ノ to the bottom rise, a
+  sweep with a square turn and a stem left alone. New ㇙ rule in `gw.merged`: a stem and the rise leaving its foot to the
+  upper right are one stroke, the rise moved to start at the foot; used only where the ム rule fires, and the ム rule
+  steps aside when a stem's foot is at the rise's start. 衣 表 衷 裁 製 装 長 襟 now read right. 抑 拡 (the ム rule had
+  joined across parts) are set by hand. Joyo still 2,134 of 2,140.
+- Dense kanji: the pull toward the hands falls from 1 at 15 strokes to 0.3 at 25 (`c_final.DENSE_PULL`), and the pen
+  goes on down past 20 strokes to 0.6 at 28 (`pen.most`). 鑑 驚 響 護 艦 欄 籍 競 read; 鬱 (29) still runs together.
