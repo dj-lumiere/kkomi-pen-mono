@@ -1364,3 +1364,10 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   joined across parts) are set by hand. Joyo still 2,134 of 2,140.
 - Dense kanji: the pull toward the hands falls from 1 at 15 strokes to 0.3 at 25 (`c_final.DENSE_PULL`), and the pen
   goes on down past 20 strokes to 0.6 at 28 (`pen.most`). 鑑 驚 響 護 艦 欄 籍 競 read; 鬱 (29) still runs together.
+- GlyphWiki part versions and stretch (Lumi 2026-11-20, "鬱 does not get its strokes in place at all"): a part reference
+  `name@N` means that part's N-th version, and the newest-only dump has none of them, so 鬱 got its lower half's
+  newest version, a whole glyph drawn over the top. The 165,911 old versions referred to are taken from
+  `dump_all_versions.txt` into `dl_glyphwiki/kage_versions.pkl`. And a reference's stretch numbers
+  (`99:sx:sy:...:sx2:sy2`) are now applied as kage.js does (a piecewise linear move inside the part's box). Joyo:
+  134 kanji use old versions and 74 stretched parts; 鬱 爆 森 now sit where Noto has them. The count stays 2,134 and the
+  hand-fixed numbering is unchanged.
