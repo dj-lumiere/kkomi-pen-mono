@@ -1395,3 +1395,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Kanji and kana stood 130 above the Hangul (Lumi 2026-11-20): `make20.glyph_job` moved every full-width glyph up
   HAN_DY (86) as Hangul-like, kana and kanji too, whose lines kana_new.py / kanji_new.py had already put in place.
   Glyphs marked final now skip it. Middles after the fix: kanji 434, kana 437, Hangul 456.
+- Kanji height (Lumi 2026-11-20): 871 stays, the Latin capitals' height (H 12..865, OS/2 capHeight 871); kanji stand on
+  the baseline like them. 871 sizes the median kanji; each glyph keeps its own proportions (口 595, 国 768, 東 876).
+  Kanji of 20 strokes and more are no longer drawn at 95% (`dense_size` 1.0): 鬱 was 835 high with too little room.
+  鬱 is to be looked at again later.
