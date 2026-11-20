@@ -1378,3 +1378,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - 覧's 臣 leaning (Lumi 2026-11-20): the hand step had turned its left stem 22 degrees toward the hands'. Bars and stems
   (kinds h, v) may now turn at most 3 degrees from C's (`c_match.TURN_CAP`), turned back about their middle; their place
   and bend still follow the hands. Kkomi writes more evenly than either hand (the irregularity measure above).
+  The cap alone did not show: the joint repair after it pulled the stem's foot to where 臣's bottom had moved (130
+  units shorter with the hands) and leaned it again. Now when a bar or stem would turn past the cap to reach another
+  stroke's end, that end comes to it instead (the bottom grows back to the stem).
