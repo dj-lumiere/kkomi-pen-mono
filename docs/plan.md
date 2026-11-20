@@ -1410,3 +1410,9 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Steps: (1) pen width to colour, measured per script and stroke count; (2) a 900 master for every script, dense
   glyphs bolder only as far as their white allows (open_counters first); (3) pen shares per master, script and stroke
   count; (4) check build, measure again.
+- Pen per weight (Lumi 2026-11-20): one pen table for every script (Latin, Hangul, old Hangul, kana, kanji):
+  100 24, 200 41, 300 58, 400 75, 500 88, 600 102, 700 115, 800 128, 900 142 (font units). Chosen after rendering
+  code at 12, 14 and 16 px beside D2Coding, Noto Sans Mono CJK KR, Nanum Gothic Coding, Elice Digital Coding and
+  JetBrains Mono (ink share and cap-height ratios had misled: Kkomi's glyphs are large in the em). The Hangul pen
+  (`build20.PEN`) is now this table (its 100 had been 31, too dark); the kana's 0.95 and the kanji's 0.85 are gone;
+  kanji thin from 15 strokes to 0.8 at 25 and more. Every script draws to 900 (weight caps removed, composites too).
