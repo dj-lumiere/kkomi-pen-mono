@@ -1392,3 +1392,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   `c_final`; `kana_r.py` puts them into the glyph tables as new glyphs `uniXXXX` (the 1.x font has no kanji), and
   `glyphs20.py` / `make20.py` take names the 1.x font lacks (code point from the name, advance 1000). The build chain's
   latin stage now also watches the kanji files. Each of the four check fonts has 22,342 glyphs and all 2,140 Joyo kanji.
+- Kanji and kana stood 130 above the Hangul (Lumi 2026-11-20): `make20.glyph_job` moved every full-width glyph up
+  HAN_DY (86) as Hangul-like, kana and kanji too, whose lines kana_new.py / kanji_new.py had already put in place.
+  Glyphs marked final now skip it. Middles after the fix: kanji 434, kana 437, Hangul 456.
