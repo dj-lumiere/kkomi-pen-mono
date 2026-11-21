@@ -1511,3 +1511,4 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Fixed after 1.2.0 (Lumi 2026-11-21, ꥼퟅᇄ): the old letters' changes found "the" ㅎ / ㅇ / ㅅ of a role, so the
   doubled ꥼ (ᅙᅙ) had its first ㆆ changed twice (into ㅇ) and its second left a ㅎ. old_table now applies each
   change (ᅀ ᅌ ᅙ) to its own part.
+- 1.2.1 released (Lumi 2026-11-21): the doubled yeorinhieut fix only.
