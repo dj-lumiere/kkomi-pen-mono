@@ -1481,3 +1481,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   (its ※ came apart), and ※'s four dots kept at 55% of their length toward their outer end, clear of the X (the way
   the hand writes it). gw_fix.json takes "yremap", "no_hand" and "shrink" for this. At 400 the X and dots read
   apart; at 700/900 the lower half is still dense (left as the heavy weights' nature).
+- 鬱's ※ had lost its top dot (Lumi 2026-11-21): the dot touched the end of the 冖's bar and join_corners dropped it
+  as a spur; the dot set a little lower (gw_fix "set"), the four dots stay.
