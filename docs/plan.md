@@ -1465,3 +1465,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   to open gives at most 15% of its length (was 40%), and the glyph never grows (the tight bands get only what the
   slack gives, at every weight). Kanji losing a hole against 100: 400 13 -> 5, 700 20 -> 29, 900 77 -> 108 (the
   heavy weights lean on their pen share).
+- Pens thinner (Lumi 2026-11-21: 700 too heavy for dense kanji at UI sizes): the one pen table is 0.9 of the one
+  before, 100 22, 200 37, 300 52, 400 68, 500 79, 600 92, 700 104, 800 115, 900 128. Kanji: the weight's pen up to
+  12 strokes, down to 0.8 at 20 and more (tried 0.7: dense kanji came out paler than the Hangul beside them).
+  open_counters takes the pen from the table at every weight (400 had kept the old 76). Kanji losing a hole against
+  100: 400 4, 700 7, 900 44 (were 5, 29, 108).
