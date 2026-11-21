@@ -1485,3 +1485,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   as a spur; the dot set a little lower (gw_fix "set"), the four dots stay.
 - 鬱's 冖 drawn as a square cover (Lumi 2026-11-21): a short left side, the bar, a short right side straight down
   (GlyphWiki's slanted drop and hook replaced, gw_fix "set"); the sides short enough to clear 彡's first stroke.
+- Kanji pen curve extended (Lumi 2026-11-21, as Noto Sans JP thins its densest kanji, its 鬱 at 700 about half its
+  一): 1.0 up to 12 strokes, 0.8 at 20, 0.6 at 30 and more (style pen.far); 鬱 (29) at 0.62.
