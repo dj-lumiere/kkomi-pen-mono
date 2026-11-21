@@ -1455,3 +1455,9 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   stem added (12); 殻 冖's left drop apart from 几's left stroke (11); 緊 臣's bottom bar apart from its left stem,
   糸's two turns each one stroke from where they meet (15); 捗 was right at 10 (its count data said 11, fixed).
   gw_fix.json now also takes "set" (a stroke's pieces by hand) and "add" (a stroke the glyph lacks).
+- Kanji balance (Lumi 2026-11-21: 幣 弊 御 out of balance): the C strokes and the hand blend were fine, open_counters
+  broke them. Two strokes that meet where they run side by side (御's stem ending on its ノ) are no longer held
+  apart (it pushed every stroke right of them over), and only pieces within 12 degrees of the axis count (敝's
+  slanted inner dots beside its stem had pushed 攵 into a corner); 癒 書 曹 keep their counters. Strokes set by
+  hand in gw_fix.json skip the hand blend (no_hand). 緊's last bar of 幺 kept long (Lumi): the stroke turns back
+  along it.
