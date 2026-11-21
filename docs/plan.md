@@ -1450,3 +1450,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   canonical letters). The ㆁ tick 1.6 pens as initial and final: the final's touching and off-centre look came
   from test renders of the build20_alpha font, which lacks patch_lv.py's LV fix (L V + old final composed to the
   modern LV syllable); the check statics have it and show neither. Test renders use check22 from now on.
+- The six kanji with wrong stroke counts (Lumi 2026-11-21), checked against Noto Sans JP's shapes: 幣 弊 the stem
+  above the 冂's top and the one inside are two strokes (15); 御 the main stem from the top bar, and 止's short left
+  stem added (12); 殻 冖's left drop apart from 几's left stroke (11); 緊 臣's bottom bar apart from its left stem,
+  糸's two turns each one stroke from where they meet (15); 捗 was right at 10 (its count data said 11, fixed).
+  gw_fix.json now also takes "set" (a stroke's pieces by hand) and "add" (a stroke the glyph lacks).
