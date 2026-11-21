@@ -1504,3 +1504,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   share); 20,000 random old Hangul syllables shape into their forms (only the filler U+115F stays bare). Fixed: the
   variable fonts' usWinAscent/Descent came from the default instance only, the 900 accents (Â to 1106) were clipped
   on Windows; fix_names.py now measures both ends of every axis (VF 1116/434, Italic VF 1130/434).
+- 1.2.0 released (Lumi 2026-11-21): everything above, all 18 weights, variable fonts, woff2. Licence: SIL OFL 1.1
+  from 1.2 (the kanji from GlyphWiki data and the hand of Yomogi and Hachi Maru Pop, the kana on the median of 31
+  OFL fonts), the KOGL Type 1 notice of the original Kkomi kept; every source's notice in OFL.txt, name IDs 0/13/14
+  set by fix_names.py. The variable fonts' win lines raised to cover every static instance of their style.
