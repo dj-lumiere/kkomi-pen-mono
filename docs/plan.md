@@ -1470,3 +1470,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   12 strokes, down to 0.8 at 20 and more (tried 0.7: dense kanji came out paler than the Hangul beside them).
   open_counters takes the pen from the table at every weight (400 had kept the old 76). Kanji losing a hole against
   100: 400 4, 700 7, 900 44 (were 5, 29, 108).
+- Full-width CJK punctuation (Lumi 2026-11-21): set to one side of the cell as Noto Sans CJK sets it (its Korean and
+  Japanese versions alike, so no locl): 、。，． and the closing brackets on the left half (ink centre 195), the
+  opening brackets on the right (805); 「『 no higher than 846, 」』 no lower than -86 (make20.punct_shift, one
+  shift for every master).
