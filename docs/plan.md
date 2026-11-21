@@ -1474,3 +1474,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   Japanese versions alike, so no locl): 、。，． and the closing brackets on the left half (ink centre 195), the
   opening brackets on the right (805); 「『 no higher than 846, 」』 no lower than -86 (make20.punct_shift, one
   shift for every master).
+- Full-width brackets sized as Noto Sans JP (Lumi 2026-11-21): 「」『』〈〉《》（）〔〕［］｛｝【】 fitted so their ink at
+  400 fills Noto Sans JP 400's box (make20.PUNCT_BOX); the pen-drawn ones by their centre lines (the pen keeps its
+  width), 【】 by their outline. 《》 no longer reach past the cell.
