@@ -1443,3 +1443,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Sibilant legs 2:3 (Lumi 2026-11-21: the difference must show): after the box fit the short leg's drop is set to
   2/3 of the long leg's, along its own slant (old_table.sib_legs); a sibilant cluster (ᄽ ᄿ ᅏ ᅑ) is fitted as a
   whole into its plain double letter's box.
+- Yesieung tick (Lumi 2026-11-21): an initial's 1.6 pens, a final's back to 0.9 (the longer one touched the
+  letters over it, 아ᇰ 듀ᇰ). Old Hangul sibilants settled as they are (2:3).
