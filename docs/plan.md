@@ -1491,3 +1491,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   least 1.4 pens across at that master (white 0.4 pen), grown downward from its top (make20.old_axis, RING_LEAST);
   vowel dots untouched. Rings closed: 400 170 -> 0, 700 283 -> 0, 900 627 -> 0. Sample syllables losing a hole:
   400 248 -> 195, 700 430 -> 134, 900 461 -> 161.
+- Old Hangul at 400 (2026-11-21): the jamo forms are spread at 400 too (the ㅎ of a final of three letters,
+  ㄹㄱㅎ ㄹㆆㅎ, had its tick, bar and ring touching), the rings grown to their least size before the spread at 400
+  and after it at the heavy masters (grown first there, the spread had too little room: 700 134 -> 364). The
+  corner structure is read from the stored form in every master (400's own form differs from 100's now). Sample
+  syllables losing a hole: 400 195 -> 126, 700 134 -> 133, 900 161 -> 162.
