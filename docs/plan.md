@@ -1461,3 +1461,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   slanted inner dots beside its stem had pushed 攵 into a corner); 癒 書 曹 keep their counters. Strokes set by
   hand in gw_fix.json skip the hand blend (no_hand). 緊's last bar of 幺 kept long (Lumi): the stroke turns back
   along it.
+- open_counters gentler (Lumi 2026-11-21: 憂's 夂 crushed, 口 pressed to one side, 慶 odd): a band with no counter
+  to open gives at most 15% of its length (was 40%), and the glyph never grows (the tight bands get only what the
+  slack gives, at every weight). Kanji losing a hole against 100: 400 13 -> 5, 700 20 -> 29, 900 77 -> 108 (the
+  heavy weights lean on their pen share).
