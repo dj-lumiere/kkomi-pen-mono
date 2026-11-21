@@ -1477,3 +1477,7 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
 - Full-width brackets sized as Noto Sans JP (Lumi 2026-11-21): 「」『』〈〉《》（）〔〕［］｛｝【】 fitted so their ink at
   400 fills Noto Sans JP 400's box (make20.PUNCT_BOX); the pen-drawn ones by their centre lines (the pen keeps its
   width), 【】 by their outline. 《》 no longer reach past the cell.
+- 鬱 (Lumi 2026-11-21): 林缶林 made shorter (GlyphWiki 13-81 -> 13-67) so the 凵 holding ※ is taller, no hand blend
+  (its ※ came apart), and ※'s four dots kept at 55% of their length toward their outer end, clear of the X (the way
+  the hand writes it). gw_fix.json takes "yremap", "no_hand" and "shrink" for this. At 400 the X and dots read
+  apart; at 700/900 the lower half is still dense (left as the heavy weights' nature).
