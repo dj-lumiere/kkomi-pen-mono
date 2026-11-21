@@ -1445,3 +1445,8 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   whole into its plain double letter's box.
 - Yesieung tick (Lumi 2026-11-21): an initial's 1.6 pens, a final's back to 0.9 (the longer one touched the
   letters over it, 아ᇰ 듀ᇰ). Old Hangul sibilants settled as they are (2:3).
+- Yesieung / yeorinhieut (Lumi 2026-11-21): ㆁ and ㆆ as tall as halfway between ㅇ and ㅎ in the same syllable,
+  applied again after the layout table (old_table.between_o_h; the composer's rule had been lost with the
+  canonical letters). The ㆁ tick 1.6 pens as initial and final: the final's touching and off-centre look came
+  from test renders of the build20_alpha font, which lacks patch_lv.py's LV fix (L V + old final composed to the
+  modern LV syllable); the check statics have it and show neither. Test renders use check22 from now on.
