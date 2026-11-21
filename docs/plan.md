@@ -1496,3 +1496,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   and after it at the heavy masters (grown first there, the spread had too little room: 700 134 -> 364). The
   corner structure is read from the stored form in every master (400's own form differs from 100's now). Sample
   syllables losing a hole: 400 195 -> 126, 700 134 -> 133, 900 161 -> 162.
+- The zero's dot (Lumi 2026-11-21: lost at 16 px, 0 read as O): two 400 pens across (136) at 400 and over (two of a
+  heavy weight's pens filled the counter), thinner weights by their own pen (make20 ZERO_DOT_PENS).
