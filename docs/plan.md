@@ -1508,3 +1508,6 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   from 1.2 (the kanji from GlyphWiki data and the hand of Yomogi and Hachi Maru Pop, the kana on the median of 31
   OFL fonts), the KOGL Type 1 notice of the original Kkomi kept; every source's notice in OFL.txt, name IDs 0/13/14
   set by fix_names.py. The variable fonts' win lines raised to cover every static instance of their style.
+- Fixed after 1.2.0 (Lumi 2026-11-21, ꥼퟅᇄ): the old letters' changes found "the" ㅎ / ㅇ / ㅅ of a role, so the
+  doubled ꥼ (ᅙᅙ) had its first ㆆ changed twice (into ㅇ) and its second left a ㅎ. old_table now applies each
+  change (ᅀ ᅌ ᅙ) to its own part.
