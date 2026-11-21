@@ -1483,3 +1483,5 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   apart; at 700/900 the lower half is still dense (left as the heavy weights' nature).
 - 鬱's ※ had lost its top dot (Lumi 2026-11-21): the dot touched the end of the 冖's bar and join_corners dropped it
   as a spur; the dot set a little lower (gw_fix "set"), the four dots stay.
+- 鬱's 冖 drawn as a square cover (Lumi 2026-11-21): a short left side, the bar, a short right side straight down
+  (GlyphWiki's slanted drop and hook replaced, gw_fix "set"); the sides short enough to clear 彡's first stroke.
