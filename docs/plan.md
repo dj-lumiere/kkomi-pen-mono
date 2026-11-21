@@ -1498,3 +1498,9 @@ R_옛한글(`tmp/c_hangul/r_old_hangul.json`): R_한글(대리 현대 음절의 
   syllables losing a hole: 400 195 -> 126, 700 134 -> 133, 900 161 -> 162.
 - The zero's dot (Lumi 2026-11-21: lost at 16 px, 0 read as O): two 400 pens across (136) at 400 and over (two of a
   heavy weight's pens filled the counter), thinner weights by their own pen (make20 ZERO_DOT_PENS).
+- Release audit (2026-11-21, exp20/audit20.py on the check fonts against v1.1.4): no code point lost, 2,140 gained
+  (Joyo kanji), no mapped glyph empty; past the cell only ╱╲╳ and two powerline glyphs (and in the italic the slanted
+  old jamo and ▣-▩, as in 1.1.4); 24 glyphs (kanji, ᄝ ᄫ) have 0.1-2% less ink at 900 than at 700 (the heavy pen
+  share); 20,000 random old Hangul syllables shape into their forms (only the filler U+115F stays bare). Fixed: the
+  variable fonts' usWinAscent/Descent came from the default instance only, the 900 accents (Â to 1106) were clipped
+  on Windows; fix_names.py now measures both ends of every axis (VF 1116/434, Italic VF 1130/434).
