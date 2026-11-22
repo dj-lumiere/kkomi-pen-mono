@@ -40,7 +40,9 @@ textarea { width: 100%; box-sizing: border-box; min-height: 260px; resize: verti
 .c { background: var(--cell); border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px 0 2px; min-width: 0; }
 .c .g { font-size: var(--gs, 28px); line-height: 1.32; white-space: pre; }
 .c .u { font-size: 10px; color: var(--muted); font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif; }
-.vs { height: 70vh; overflow-y: auto; position: relative; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+/* grids off screen are not drawn, so a weight change redraws only the glyphs in view */
+.grid { content-visibility: auto; contain-intrinsic-size: auto 480px; }
+.vs { contain: strict; height: 70vh; overflow-y: auto; position: relative; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
 .vs .sp { position: relative; }
 .vs .row { position: absolute; left: 0; right: 0; display: grid; gap: 2px; padding: 0 2px; }
 .jump { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 14px; }
@@ -87,12 +89,15 @@ const el = (t, a = {}, ...ch) => { const e = document.createElement(t); for (con
 const hex = c => "U+" + c.toString(16).toUpperCase().padStart(4, "0");
 const ch = c => String.fromCodePoint(c);
 const root = document.documentElement;
+// (one restyle per frame: a slider sends many input events a frame, and each restyle redraws every glyph on the page)
+let stylePending = false;
+function applyStyleSoon() { if (!stylePending) { stylePending = true; requestAnimationFrame(() => { stylePending = false; applyStyle(); }); } }
 function applyStyle() {
   root.style.setProperty("--w", $("#w").value); $("#wv").textContent = $("#w").value;
   root.style.setProperty("--st", $("#it").checked ? "italic" : "normal");
   $("#szv").textContent = $("#sz").value; document.querySelectorAll("[data-sz]").forEach(e => e.style.fontSize = $("#sz").value + "px");
 }
-["w", "sz", "it"].forEach(id => $("#" + id).addEventListener("input", applyStyle));
+["w", "sz", "it"].forEach(id => $("#" + id).addEventListener("input", applyStyleSoon));
 
 const SAMPLE = `# 꼬미 펜 모노: 손글씨 고정폭
 routine greet(name: Text?) -> Text
